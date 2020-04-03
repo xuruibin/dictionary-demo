@@ -1,0 +1,15 @@
+#SERVER
+server:
+  port: 8080
+  servlet:
+    context-path: /dictionary-demo
+    session:
+      timeout: 0
+
+#SPRING
+spring:
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
