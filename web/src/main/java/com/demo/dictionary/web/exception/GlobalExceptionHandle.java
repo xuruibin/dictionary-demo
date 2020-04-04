@@ -4,7 +4,7 @@ import com.demo.dictionary.common.enums.StatusCode;
 import com.demo.dictionary.common.exception.BusinessException;
 import com.demo.dictionary.common.exception.ValidException;
 import com.demo.dictionary.common.response.ResponseData;
-import com.demo.dictionary.common.util.JacksonUtil;
+import com.demo.dictionary.common.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,8 +27,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @author Rio
- * @date 2018/8/1
+ * @author Dora B
  */
 @Slf4j
 @ControllerAdvice
@@ -115,7 +114,7 @@ public class GlobalExceptionHandle extends ResponseEntityExceptionHandler {
 
     private void logUrlParams(HttpServletRequest request, String errorMsg) {
         String url = "接口：" + request.getRequestURI();
-        String params = "参数：" + JacksonUtil.toJsonString(request.getParameterMap());
+        String params = "参数：" + JsonUtil.toFeaturesJson(request.getParameterMap());
         log.error(url + "，" + params + "，错误信息：" + errorMsg);
     }
 

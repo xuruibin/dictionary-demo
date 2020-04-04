@@ -35,6 +35,7 @@ public class LogRecordAspect {
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
+        assert sra != null;
         HttpServletRequest request = sra.getRequest();
 
         String url = request.getRequestURL().toString();
@@ -55,7 +56,7 @@ public class LogRecordAspect {
             }
         } catch (Exception ignored) {
         }
-        log.debug("请求开始===地址:" + url + ", 类型:" + method + ", 参数:" + params);
+        log.info("请求开始===地址:" + url + ", 类型:" + method + ", 参数:" + params);
         long startTime = System.currentTimeMillis();
         // result的值就是被拦截方法的返回值
         Object result = pjp.proceed();
