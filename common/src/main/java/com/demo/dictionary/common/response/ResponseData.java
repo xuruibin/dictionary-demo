@@ -15,19 +15,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel("返回信息")
+@ApiModel("response data")
 public class ResponseData<T> {
 
-    @ApiModelProperty(value = "状态码 success: 200 fail: 300")
+    @ApiModelProperty(value = "status code: 200-success, 300-fail")
     private int statusCode = 200;
 
-    @ApiModelProperty("提示信息")
+    @ApiModelProperty("message")
     private String message;
 
-    @ApiModelProperty("返回数据")
+    @ApiModelProperty("response data")
     private T data;
 
-    @ApiModelProperty("分页数据")
+    @ApiModelProperty("page data")
     private PageInfo pageInfo;
 
     public ResponseData(StatusCode statusCode, T data) {

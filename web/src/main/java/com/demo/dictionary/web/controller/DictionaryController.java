@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author Dora B
  */
-@Api(tags = "单词服务")
+@Api(tags = "word server")
 @RestController
 @RequestMapping("/word")
 public class DictionaryController {
@@ -26,21 +26,21 @@ public class DictionaryController {
         this.wordService = wordService;
     }
 
-    @ApiOperation("获取字典库")
+    @ApiOperation("get the dictionary")
     @GetMapping(value = "/dictionary/")
-    public ResponseData<List<String>> listDictionary(
-            @ApiParam("字典类型，1-系统，2-自定义") @RequestParam int dictionaryType
+    public ResponseData<List<String>> getDictionary(
+            @ApiParam("dictionary type: 1-system, 2-custom") @RequestParam int dictionaryType
     ) {
-        return new ResponseData<>(StatusCode.OK, wordService.listDictionary(dictionaryType));
+        return new ResponseData<>(StatusCode.OK, wordService.getDictionary(dictionaryType));
     }
 
-    @ApiOperation("更新字典库")
+    @ApiOperation("update the dictionary")
     @PutMapping(value = "/dictionary/")
     public ResponseData<List<String>> updateDictionary(@RequestBody DictionaryParam param) {
         return new ResponseData<>(StatusCode.ACCEPTED, wordService.updateDictionary(param));
     }
 
-    @ApiOperation("断句")
+    @ApiOperation("sentence break")
     @PostMapping(value = "/break")
     public ResponseData<List<String>> wordBreak(@RequestBody SentenceParam param) {
         return new ResponseData<>(StatusCode.CREATED, wordService.wordBreak(param));

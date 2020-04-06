@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel("分页信息")
+@ApiModel("page data")
 public class PageInfo {
 
-    @ApiModelProperty("当前页")
+    @ApiModelProperty("page num")
     private Integer pageNum;
 
-    @ApiModelProperty("每页的数量")
+    @ApiModelProperty("page size")
     private Integer pageSize;
 
-    @ApiModelProperty("总数")
+    @ApiModelProperty("total")
     private Long total;
 
 }

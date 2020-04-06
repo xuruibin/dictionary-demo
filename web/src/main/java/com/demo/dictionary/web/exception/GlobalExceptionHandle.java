@@ -113,9 +113,10 @@ public class GlobalExceptionHandle extends ResponseEntityExceptionHandler {
     }
 
     private void logUrlParams(HttpServletRequest request, String errorMsg) {
-        String url = "接口：" + request.getRequestURI();
-        String params = "参数：" + JsonUtil.toFeaturesJson(request.getParameterMap());
-        log.error(url + "，" + params + "，错误信息：" + errorMsg);
+        String url = "url: " + request.getRequestURI();
+        String method = "method: " + request.getMethod();
+        String params = "params: " + JsonUtil.toFeaturesJson(request.getParameterMap());
+        log.error(url + ", " + method + ", " + params + ", error msg: " + errorMsg);
     }
 
 }

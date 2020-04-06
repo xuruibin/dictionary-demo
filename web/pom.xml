@@ -12,23 +12,23 @@
     <artifactId>web</artifactId>
 
     <dependencies>
-        <!-- SpringBoot Web容器 -->
+        <!-- SpringBoot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- SpringBoot 拦截器 -->
+        <!-- SpringBoot aop -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-        <!-- SpringBoot 测试 -->
+        <!-- SpringBoot test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- 项目模块 -->
+        <!-- project module -->
         <dependency>
             <groupId>com.demo.dictionary</groupId>
             <artifactId>service</artifactId>

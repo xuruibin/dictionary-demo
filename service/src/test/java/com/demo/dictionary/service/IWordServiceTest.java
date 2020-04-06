@@ -31,14 +31,14 @@ public class IWordServiceTest {
 
     @Test
     public void listDictionary() {
-        List<String> dictList = wordService.listDictionary(1);
+        List<String> dictList = wordService.getDictionary(1);
         Assert.assertThat(dictList, is(WordUtil.systemWordDict));
 
-        dictList = wordService.listDictionary(2);
+        dictList = wordService.getDictionary(2);
         Assert.assertThat(dictList, is(WordUtil.customWordDict));
 
         try {
-            wordService.listDictionary(3);
+            wordService.getDictionary(3);
         } catch (ValidException ignored) {
         }
     }

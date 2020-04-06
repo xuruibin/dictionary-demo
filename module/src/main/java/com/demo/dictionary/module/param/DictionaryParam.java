@@ -13,10 +13,10 @@ import java.util.List;
 @Setter
 public class DictionaryParam {
 
-    @ApiModelProperty("字典类型，1-系统，2-自定义")
+    @ApiModelProperty("dictionary type: 1-system, 2-custom")
     private int dictionaryType;
 
-    @ApiModelProperty("字典库")
+    @ApiModelProperty("dictionary")
     private List<String> wordDict;
 
 }

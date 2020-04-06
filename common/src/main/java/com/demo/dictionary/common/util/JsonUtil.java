@@ -19,25 +19,22 @@ public class JsonUtil {
 
     static {
         config = new SerializeConfig();
-        config.put(java.util.Date.class, new JSONLibDataFormatSerializer()); // 使用和json-lib兼容的日期输出格式
-        config.put(java.sql.Date.class, new JSONLibDataFormatSerializer()); // 使用和json-lib兼容的日期输出格式
+        // date format
+        config.put(java.util.Date.class, new JSONLibDataFormatSerializer());
+        config.put(java.sql.Date.class, new JSONLibDataFormatSerializer());
     }
 
     private static final SerializerFeature[] features = {
-            // 输出空置字段
+            // set the default value instead of null
             SerializerFeature.WriteMapNullValue,
-            // list字段如果为null，输出为[]，而不是null
             SerializerFeature.WriteNullListAsEmpty,
-            // 数值字段如果为null，输出为0，而不是null
             SerializerFeature.WriteNullNumberAsZero,
-            // Boolean字段如果为null，输出为false，而不是null
             SerializerFeature.WriteNullBooleanAsFalse,
-            // 字符类型字段如果为null，输出为""，而不是null
             SerializerFeature.WriteNullStringAsEmpty
     };
 
     /**
-     * 将对象转为json字符串
+     * Convert object to json string
      *
      * @param object
      * @return
@@ -47,7 +44,7 @@ public class JsonUtil {
     }
 
     /**
-     * 将对象转为json字符串
+     * Convert object to json string
      *
      * @param object
      * @return
@@ -57,7 +54,7 @@ public class JsonUtil {
     }
 
     /**
-     * 将json字符串转为Object实例
+     * Convert json string to object
      *
      * @param json
      * @return
@@ -67,7 +64,7 @@ public class JsonUtil {
     }
 
     /**
-     * 将json字符串转为指定类型的实例
+     * Convert json string to T object
      *
      * @param json
      * @param cls
@@ -79,7 +76,7 @@ public class JsonUtil {
     }
 
     /**
-     * 将json转为Map
+     * Convert json string to Map<String, T>
      *
      * @param json
      * @param <T>
@@ -91,7 +88,7 @@ public class JsonUtil {
     }
 
     /**
-     * 将json转为指定类型的List
+     * Convert json string to List<T>
      *
      * @param json
      * @param cls

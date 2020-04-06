@@ -12,15 +12,15 @@ import java.util.List;
 public interface IWordService {
 
     /**
-     * 获取字典库
+     * get the dictionary
      *
      * @param dictionaryType
      * @return
      */
-    List<String> listDictionary(int dictionaryType);
+    List<String> getDictionary(int dictionaryType);
 
     /**
-     * 更新字典库
+     * update the dictionary
      *
      * @param param
      * @return
@@ -28,7 +28,7 @@ public interface IWordService {
     List<String> updateDictionary(DictionaryParam param);
 
     /**
-     * 断句
+     * sentence break
      *
      * @param param
      * @return

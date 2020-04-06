@@ -12,7 +12,7 @@
     <artifactId>persist</artifactId>
 
     <dependencies>
-        <!-- 项目模块 -->
+        <!-- project module -->
         <dependency>
             <groupId>com.demo.dictionary</groupId>
             <artifactId>module</artifactId>

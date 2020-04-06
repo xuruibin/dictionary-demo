@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 public class WordServiceImpl implements IWordService {
 
     @Override
-    public List<String> listDictionary(int dictionaryType) {
+    public List<String> getDictionary(int dictionaryType) {
         dictionaryValid(dictionaryType);
         if (DictionaryType.system.getCode() == dictionaryType) {
             return WordUtil.systemWordDict;
@@ -41,7 +41,7 @@ public class WordServiceImpl implements IWordService {
                 return WordUtil.customWordDict;
             }
         }
-        throw new ValidException("参数异常，字典库为空");
+        throw new ValidException("Dictionary is null");
     }
 
     @Override
@@ -52,16 +52,16 @@ public class WordServiceImpl implements IWordService {
         List<String> sentenceList;
         if (param.getDictionaryTypeList().contains(DictionaryType.system.getCode())) {
             if (param.getDictionaryTypeList().contains(DictionaryType.custom.getCode())) {
-                // 根据两个字典库判断
+                // Word break according to both dictionary
                 List<String> wordDict = Stream.of(WordUtil.systemWordDict, WordUtil.customWordDict)
                         .flatMap(Collection::stream).distinct().collect(Collectors.toList());
                 sentenceList = WordUtil.wordBreak(param.getSentence(), wordDict);
             } else {
-                // 根据系统字典库判断
+                // Word break according to system dictionary
                 sentenceList = WordUtil.wordBreak(param.getSentence(), WordUtil.systemWordDict);
             }
         } else {
-            // 根据自定义字典库判断
+            // Word break according to custom dictionary
             sentenceList = WordUtil.wordBreak(param.getSentence(), WordUtil.customWordDict);
         }
         return sentenceList;
@@ -69,13 +69,13 @@ public class WordServiceImpl implements IWordService {
 
 
     /**
-     * 校验字典库类型
+     * check the dictionary type
      *
      * @param dictionaryType
      */
     private void dictionaryValid(int dictionaryType) {
         if (!DictionaryType.MAP.containsKey(dictionaryType)) {
-            throw new ValidException("参数异常，字典类型：" + dictionaryType);
+            throw new ValidException("Dictionary type[" + dictionaryType + "] error");
         }
     }
 }

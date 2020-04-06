@@ -13,10 +13,10 @@ import java.util.List;
 @Setter
 public class SentenceParam {
 
-    @ApiModelProperty("字典类型，1-系统，2-自定义")
+    @ApiModelProperty("dictionary type: 1-system, 2-custom")
     private List<Integer> dictionaryTypeList;
 
-    @ApiModelProperty("句子")
+    @ApiModelProperty("sentence")
     private String sentence;
 
 }

@@ -3,13 +3,13 @@
 
     <property resource="logback.properties"/>
 
-    <!-- 彩色日志依赖的渲染类 -->
+    <!-- Color log rendering class -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <conversionRule conversionWord="wex"
                     converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
     <conversionRule conversionWord="wEx"
                     converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
-    <!-- 彩色日志格式 -->
+    <!-- Color log format -->
     <property name="CONSOLE_LOG_PATTERN"
               value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <!-- 按照每天生成日志文件 -->
+    <!-- Generate log files daily -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.dir}/file.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -31,12 +31,11 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %C.%M - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名 -->
+            <!-- log files name -->
             <FileNamePattern>${log.dir}/file.log.%d{yyyy-MM-dd}
             </FileNamePattern>
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
-        <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符 -->
     </appender>
 
     <appender name="REQUEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -46,12 +45,10 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %C.%M - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名 -->
             <FileNamePattern>${log.dir}/request.log.%d{yyyy-MM-dd}
             </FileNamePattern>
             <MaxHistory>10</MaxHistory>
         </rollingPolicy>
-        <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符 -->
     </appender>
 
     <root level="${log.level}">

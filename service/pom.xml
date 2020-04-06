@@ -12,13 +12,13 @@
     <artifactId>service</artifactId>
 
     <dependencies>
-        <!-- SpringBoot 测试 -->
+        <!-- SpringBoot test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- 项目模块 -->
+        <!-- project module -->
         <dependency>
             <groupId>com.demo.dictionary</groupId>
             <artifactId>persist</artifactId>

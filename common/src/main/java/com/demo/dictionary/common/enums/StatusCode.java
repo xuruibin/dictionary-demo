@@ -11,19 +11,18 @@ import java.util.HashMap;
 public enum StatusCode {
 
     /**
-     * 状态码
+     * status code
      */
-    // 成功
-    OK(200, "请求成功"),
-    CREATED(201, "创建成功"),
-    ACCEPTED(202, "更新成功"),
+    // success
+    OK(200, "request success"),
+    CREATED(201, "create success"),
+    ACCEPTED(202, "update success"),
 
-    // 基本异常
-    FAILED(300, "失败"),
-    BAD_REQUEST	(400, "请求传参异常，客户端根据提示信息修复bug，统一提示系统繁忙"),
-    FORBIDDEN(403, "未登录"),
-    NOT_FOUND(404, "请求不存在"),
-    INTERNAL_SERVER_ERROR(500, "服务器异常，客户端统一提示系统繁忙"),
+    // fail
+    FAILED(300, "fail"),
+    BAD_REQUEST	(400, "client error: bad request"),
+    NOT_FOUND(404, "client error: not found"),
+    INTERNAL_SERVER_ERROR(500, "server error"),
     ;
 
     StatusCode(int code, String remark) {
@@ -38,14 +37,14 @@ public enum StatusCode {
     private static final HashMap<Integer, StatusCode> MAP = new HashMap<>();
 
     static {
-        for (StatusCode type : StatusCode.values()) {
-            if (MAP.put(type.getCode(), type) != null) {
-                throw new IllegalArgumentException("duplicate type: " + type.getCode());
+        for (StatusCode enums : StatusCode.values()) {
+            if (MAP.put(enums.getCode(), enums) != null) {
+                throw new IllegalArgumentException("duplicate enums: " + enums.getCode());
             }
         }
     }
 
-    public static StatusCode get(int code) {
-        return MAP.get(code);
+    public static StatusCode get(int enums) {
+        return MAP.get(enums);
     }
 }

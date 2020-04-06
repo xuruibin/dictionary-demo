@@ -22,10 +22,10 @@
         <commons.io.version>2.5</commons.io.version>
     </properties>
 
-    <!-- 依赖声明 -->
+    <!-- dependency -->
     <dependencyManagement>
         <dependencies>
-            <!-- SpringBoot的依赖配置-->
+            <!-- SpringBoot dependencies -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -34,28 +34,28 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--阿里数据库连接池 -->
+            <!--alibaba druid -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
 
-            <!-- pagehelper 分页插件 -->
+            <!-- pagehelper plugin -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.boot.version}</version>
             </dependency>
 
-            <!--io常用工具类 -->
+            <!--io utils -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
 
-            <!-- 项目模块 -->
+            <!-- project module -->
             <dependency>
                 <groupId>com.demo.dictionary</groupId>
                 <artifactId>common</artifactId>
@@ -85,13 +85,13 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- swagger2-->
+        <!-- swagger2 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-        <!-- swagger2-UI-->
+        <!-- swagger2-UI -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -106,7 +106,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- 阿里JSON解析器 -->
+        <!-- alibaba json utils -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

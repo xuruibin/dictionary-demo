@@ -11,16 +11,17 @@ import java.util.List;
 public class WordUtil {
 
     /**
-     * 系统字典
+     * system dictionary
      */
     public static List<String> systemWordDict = Arrays.asList("i", "like", "sam", "sung", "samsung", "mobile", "ice", "cream", "man go");
     /**
-     * 用户自定义字典
+     * custom dictionary
      */
     public static List<String> customWordDict = Arrays.asList("i", "like", "sam", "sung", "mobile", "icecream", "man go", "mango");
 
     /**
-     * 根据字典断句（输出所有有效句子）
+     * Word break according to dictionary (output all valid sentences)
+     * public
      *
      * @param sentence
      * @param wordDict
@@ -30,8 +31,10 @@ public class WordUtil {
         return wordBreak(sentence, sentence.length(), wordDict, "");
     }
 
+
     /**
-     * 根据字典断句（输出所有有效句子）
+     * Word break according to dictionary (output all valid sentences)
+     * private
      *
      * @param sentence
      * @param length
@@ -58,7 +61,8 @@ public class WordUtil {
     }
 
     /**
-     * 检验并获取字典中单词
+     * get the word from dictionary if contains
+     * private
      *
      * @param word
      * @param wordDict

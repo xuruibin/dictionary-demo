@@ -15,7 +15,7 @@ import java.util.HashMap;
 public enum DictionaryType {
 
     /**
-     * 字典类型
+     * dictionary type
      */
     system(1),
     custom(2);

@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Dora B
- * 定义一个切面
  */
 @Aspect
 @Configuration
@@ -24,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LogRecordAspect {
 
     /**
-     * 定义切点Pointcut
+     * define the pointcut
      */
     @Pointcut(value = "execution(* com.demo.dictionary.web.controller..*.*(..))")
     public void executeService() {
@@ -37,13 +36,13 @@ public class LogRecordAspect {
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         assert sra != null;
         HttpServletRequest request = sra.getRequest();
-
+        // get the url and method
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String queryString = request.getQueryString();
         Object[] args = pjp.getArgs();
         StringBuilder params = new StringBuilder();
-        //获取请求参数集合并进行遍历拼接
+        // get the params
         try {
             if (args.length > 0) {
                 if (HttpMethod.POST.name().equals(method) || HttpMethod.PUT.name().equals(method) || HttpMethod.DELETE.name().equals(method)) {
@@ -56,14 +55,15 @@ public class LogRecordAspect {
             }
         } catch (Exception ignored) {
         }
-        log.info("请求开始===地址:" + url + ", 类型:" + method + ", 参数:" + params);
+        log.info("request start === url: " + url + ", method: " + method + ", params: " + params);
         long startTime = System.currentTimeMillis();
-        // result的值就是被拦截方法的返回值
+        // get the response
         Object result = pjp.proceed();
+        // check processing time, log when time > 200ms
         long time = System.currentTimeMillis() - startTime;
         int max = 200;
         if (time > max) {
-            log.debug("请求结束===地址:" + url + "，耗时:" + time + "毫秒");
+            log.debug("request end === url: " + url + ", use time: " + time + "ms");
         }
         return result;
     }

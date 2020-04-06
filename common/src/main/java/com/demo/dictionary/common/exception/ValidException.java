@@ -20,7 +20,7 @@ public class ValidException extends RuntimeException {
     }
 
     public ValidException(String message) {
-        super(message);
+        super("client error: " + message);
         this.statusCode = StatusCode.BAD_REQUEST.getCode();
     }
 }
